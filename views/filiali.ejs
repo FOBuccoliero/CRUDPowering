@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filiali</title>
+</head>
+<body>
+  <h1>Filiali</h1>
+  <ul>
+    <% filiali.forEach(filiale => { %>
+      <li>
+        <%= filiale.indirizzo %> - <%= filiale.city %> - <%= filiale.cap %>
+        <form action="/filiali/delete/<%= filiale.codice %>" method="post" style="display:inline;">
+          <button type="submit">Elimina</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+
+  <form action="/filiali" method="post">
+    <label for="indirizzo">Indirizzo:</label>
+    <input type="text" name="indirizzo" required>
+    <label for="city">Città:</label>
+    <input type="text" name="city" required>
+    <label for="cap">CAP:</label>
+    <input type="text" name="cap" required>
+    <button type="submit">Aggiungi Filiale</button>
+  </form>
+
+  <div>
+    <h2>Torna alla pagina principale:</h2>
+    <a href="/home">
+      <button>INDIETRO</button>
+    </a>
+  </div>
+</body>
+</html>

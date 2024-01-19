@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automezzi</title>
+</head>
+<body>
+  <h1>Automezzi</h1>
+  <ul>
+    <% automezzi.forEach(automezzo => { %>
+    <li>
+        <%= automezzo.targa %> - <%= automezzo.marca %> - <%= automezzo.modello %> - <%= automezzo.filiale_codice %>
+        <form action="/automezzi/delete/<%= automezzo.codice %>" method="post" style="display:inline;">
+            <button type="submit">Elimina</button>
+        </form>
+    </li>
+    <% }); %>
+  </ul>
+
+  <form action="/automezzi" method="post">
+    <label for="targa">Targa:</label>
+    <input type="text" name="targa" required>
+    <label for="marca">Marca:</label>
+    <input type="text" name="marca" required>
+    <label for="modello">Modello:</label>
+    <input type="text" name="modello" required>
+    <label for="filiale_codice">Codice Filiale:</label>
+    <input type="text" name="filiale_codice" required>
+    <button type="submit">Aggiungi Automezzo</button>
+  </form>
+
+  <div>
+    <h2>Torna alla pagina principale:</h2>
+    <a href="/home">
+      <button>INDIETRO</button>
+    </a>
+  </div>
+</body>
+</html>
